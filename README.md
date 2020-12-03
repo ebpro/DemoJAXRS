@@ -27,7 +27,7 @@ Launch the server with a name and mapped port.
 ```shell script
 docker run \
         --rm -it \
-        -p 8081:8080 \
+        -p 8080:8080 \
         --name rsserver \
         docker.io/brunoe/demojaxrs.server:develop
 ```
