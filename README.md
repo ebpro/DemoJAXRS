@@ -27,7 +27,7 @@ Launch the server with a name and mapped port.
 ```shell script
 docker run \
         --rm -it \
-        -p 8080:8080 \
+        -p 8081:8080 \
         --name rsserver \
         docker.io/brunoe/demojaxrs.server:develop
 ```
@@ -36,8 +36,8 @@ Launch one linked to the server.
 ```shell script
 docker run \
         --rm -it \
-        --link wsserver \
-        --env JAVA_OPTS="-Dfr.univtln.bruno.demo.jaxrs.server.ip=wsserver" \
+        --link rsserver \
+        --env JAVA_OPTS="-Dfr.univtln.bruno.demo.jaxrs.server.ip=rsserver -Dfr.univtln.bruno.demo.jaxrs.server.port=8081" \
         docker.io/brunoe/demojaxrs.javaclient:develop
 ```
 
