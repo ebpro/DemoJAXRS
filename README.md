@@ -37,6 +37,6 @@ Launch one linked to the server.
 docker run \
         --rm -it \
         --link rsserver \
-        --env JAVA_OPTS="-Dfr.univtln.bruno.demo.jaxrs.server.ip=rsserver -Dfr.univtln.bruno.demo.jaxrs.server.port=8081" \
+        --env JAVA_OPTS="-Dfr.univtln.bruno.demo.jaxrs.server.ip=rsserver -Dfr.univtln.bruno.demo.jaxrs.server.port=8080" \
         docker.io/brunoe/demojaxrs.javaclient:develop
 ```
