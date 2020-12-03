@@ -3,11 +3,18 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>fr.univtln.bruno.demos</groupId>
-    <artifactId>demo-JAXRS</artifactId>
-    <packaging>jar</packaging>
+    <groupId>fr.univtln.bruno.demos.jaxrs</groupId>
+    <artifactId>DemoJAXRS</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>demo-JAXRS</name>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>Server</module>
+        <module>JavaClient</module>
+        <module>Model</module>
+    </modules>
+
+    <name>Demo JAXRS</name>
 
     <dependencyManagement>
         <dependencies>
@@ -22,26 +29,6 @@
     </dependencyManagement>
 
     <dependencies>
-        <dependency>
-            <groupId>org.glassfish.jersey.containers</groupId>
-            <artifactId>jersey-container-grizzly2-http</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.glassfish.jersey.inject</groupId>
-            <artifactId>jersey-hk2</artifactId>
-        </dependency>
-
-        <!-- uncomment this to get JSON support:
-         <dependency>
-            <groupId>org.glassfish.jersey.media</groupId>
-            <artifactId>jersey-media-json-binding</artifactId>
-        </dependency>
-        -->
-
-        <dependency>
-            <groupId>org.glassfish.jersey.media</groupId>
-            <artifactId>jersey-media-json-jackson</artifactId>
-        </dependency>
 
         <dependency>
             <groupId>junit</groupId>
@@ -107,7 +94,7 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <mainClass>fr.univtln.bruno.demos.Main</mainClass>
+                    <mainClass>Main</mainClass>
                 </configuration>
             </plugin>
         </plugins>
