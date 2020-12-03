@@ -1,17 +1,18 @@
 language: bash
 dist: focal
-before_install:
-  - sudo rm -rf /var/lib/apt/lists/*
-  - curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-  - sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) edge"
-  - sudo apt-get update
-  - sudo apt-get -y -o Dpkg::Options::="--force-confnew" install docker-ce
+#before_install:
+#  - sudo rm -rf /var/lib/apt/lists/*
+#  - curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+#  - sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) edge"
+#  - sudo apt-get update
+#  - sudo apt-get -y -o Dpkg::Options::="--force-confnew" install docker-ce
 
 script:
   - docker version
-  - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
-  - docker buildx create --use
-  - alias docker='docker buildx'
+#  - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+#  - docker buildx create --use
+#  - alias docker='docker buildx'
   - bash ./build/build.sh
   - bash ./build/push.sh
 #  - docker buildx create --use
