@@ -40,14 +40,3 @@ docker run \
         --env JAVA_OPTS="-Dfr.univtln.bruno.demo.jaxrs.server.ip=rsserver -Dfr.univtln.bruno.demo.jaxrs.server.port=8081" \
         docker.io/brunoe/demojaxrs.javaclient:develop
 ```
-
-Launch one or more web clients and open http://localhost:8080 (or map another port).
-Warning, the client is Javascript executed in the browser, so the web socket server must 
-be reachable from there and not from the container (so it needs to be mapped to an host port). 
-```shell script
-docker run \
-        --link wsserver \
-        --rm \
-        -p 8080:8080 \
-        brunoe/demowebsocket.webclient:develop
-```
