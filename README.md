@@ -1,4 +1,4 @@
-# Demo Web Socket
+# Demo REST en Java (JAX-RS)
 
 ## Objectives
 A simple Java REST Server (JAX-RS with Jersey on top of Grizzly web server).
