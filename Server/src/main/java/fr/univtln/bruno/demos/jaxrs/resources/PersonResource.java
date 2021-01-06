@@ -33,6 +33,9 @@ import jakarta.ws.rs.core.MediaType;
 
 import java.util.List;
 
+/**
+ * The type Person resource.
+ */
 @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
 @Consumes(MediaType.APPLICATION_JSON)
 @Path("persons")
@@ -41,8 +44,8 @@ public class PersonResource {
     /**
      * curl -v "http://localhost:8080/myapp/persons/2"
      *
-     * @param id
-     * @return
+     * @param id the id
+     * @return person
      */
     @GET
     @Path("{id}")
@@ -53,7 +56,7 @@ public class PersonResource {
     /**
      * curl -v "http://localhost:8080/myapp/persons/"
      *
-     * @return
+     * @return list
      */
     @GET
     public List<Person> get() {
@@ -63,8 +66,8 @@ public class PersonResource {
     /**
      * curl -v --header "Content-Type: application/json" --request PUT --data '{"name":"Marie","email":"marie@ici.fr"}' http://localhost:8080/myapp/persons
      *
-     * @param person
-     * @return
+     * @param person the person
+     * @return person
      */
     @PUT
     public Person put(Person person) {

@@ -29,14 +29,17 @@ package fr.univtln.bruno.demos.jaxrs.model;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
+/**
+ * The type Person.
+ */
 @Builder
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @ToString
 @AllArgsConstructor
+@NoArgsConstructor
 @Getter  @Setter
 public class Person {
-    public Person() { }
 
     @EqualsAndHashCode.Include
     int id;

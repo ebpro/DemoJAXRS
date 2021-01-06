@@ -32,6 +32,9 @@ import org.eclipse.collections.impl.list.mutable.primitive.IntArrayList;
 
 import java.time.LocalTime;
 
+/**
+ * The type Number list dao.
+ */
 @NoArgsConstructor(staticName = "of")
 public class NumberListDAO {
     //A Int list Model
@@ -46,31 +49,62 @@ public class NumberListDAO {
         changeTime = LocalTime.now();
     }
 
+    /**
+     * Add boolean.
+     *
+     * @param i the
+     * @return the boolean
+     */
     public boolean add(int i) {
         updateChangeTime();
         return intList.asSynchronized().add(i);
     }
 
+    /**
+     * Clear.
+     */
     public void clear() {
         updateChangeTime();
         intList.asSynchronized().clear();
     }
 
+    /**
+     * Get int.
+     *
+     * @param i the
+     * @return the int
+     */
     public int get(int i) {
         return intList.asSynchronized().get(i);
     }
 
+    /**
+     * Get int [ ].
+     *
+     * @return the int [ ]
+     */
     public int[] get() {
         return intList.asSynchronized().toArray(new int[intList.size()]);
     }
 
+    /**
+     * Gets change time.
+     *
+     * @return the change time
+     */
     public LocalTime getChangeTime() {
         return changeTime;
     }
 
+    /**
+     * Multiply int [ ].
+     *
+     * @param factor the factor
+     * @return the int [ ]
+     */
     public int[] multiply(int factor) {
         MutableIntList resultList = new IntArrayList();
         intList.asSynchronized().collectInt(x -> factor * x, resultList);
-        return (intList = resultList).toArray(new int[resultList.size()]);
+        return intList.toArray(new int[resultList.size()]);
     }
 }

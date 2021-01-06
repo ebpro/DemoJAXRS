@@ -12,10 +12,10 @@ package fr.univtln.bruno.demos.jaxrs.resources;
  * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
  * copies of the Software, and to permit persons to whom the Software is
  * furnished to do so, subject to the following conditions:
- * 
+ *
  * The above copyright notice and this permission notice shall be included in
  * all copies or substantial portions of the Software.
- * 
+ *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -42,7 +42,10 @@ import java.util.concurrent.ThreadLocalRandom;
 @Path("randomnumbers/")
 @Produces(MediaType.TEXT_PLAIN)
 public class RandomNumbersResource {
-    protected NumberListDAO numberListDAO = NumberListDAO.of();
+    /**
+     * The Number list dao.
+     */
+    protected final NumberListDAO numberListDAO = NumberListDAO.of();
 
     /**
      * Method handling HTTP GET requests. The returned object will be sent
@@ -55,6 +58,11 @@ public class RandomNumbersResource {
         return Arrays.toString(numberListDAO.get());
     }
 
+    /**
+     * Append string.
+     *
+     * @return the string
+     */
     @POST
     public String append() {
         final int newInt = ThreadLocalRandom.current().nextInt(1, 6 + 1);
@@ -62,17 +70,30 @@ public class RandomNumbersResource {
         return String.valueOf(newInt);
     }
 
+    /**
+     * Start string.
+     *
+     * @return the string
+     */
     @PUT
     public String start() {
         numberListDAO.clear();
         return append();
     }
 
+    /**
+     * Delete.
+     */
     @DELETE
     public void delete() {
         numberListDAO.clear();
     }
 
+    /**
+     * Gets metadata.
+     *
+     * @return the metadata
+     */
     @HEAD
     @Produces(MediaType.TEXT_PLAIN)
     public Response getMetadata() {

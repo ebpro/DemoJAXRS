@@ -36,11 +36,20 @@ import lombok.extern.java.Log;
 import java.util.Optional;
 
 
+/**
+ * The type My client.
+ */
 @Log
 @NoArgsConstructor(staticName = "of")
 public class MyClient {
 
+    /**
+     * The constant SERVER_IP.
+     */
     public static final String SERVER_IP;
+    /**
+     * The constant SERVER_PORT.
+     */
     public static final int SERVER_PORT;
     private static final String REST_URI;
 
@@ -60,12 +69,23 @@ public class MyClient {
 
     private final Client client = ClientBuilder.newClient();
 
+    /**
+     * The entry point of application.
+     *
+     * @param args the input arguments
+     */
     public static void main(String[] args) {
         MyClient myClient = MyClient.of();
         Person person2 = myClient.getPerson(2);
         log.info(person2.toString());
     }
 
+    /**
+     * Gets person.
+     *
+     * @param id the id
+     * @return the person
+     */
     public Person getPerson(int id) {
         return client
                 .target(REST_URI)

@@ -12,10 +12,10 @@ package fr.univtln.bruno.demos.jaxrs.server;
  * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
  * copies of the Software, and to permit persons to whom the Software is
  * furnished to do so, subject to the following conditions:
- * 
+ *
  * The above copyright notice and this permission notice shall be included in
  * all copies or substantial portions of the Software.
- * 
+ *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -42,7 +42,10 @@ import java.util.logging.Logger;
  */
 @Log
 public class Server {
-    // Base URI the Grizzly HTTP server will listen on
+    /**
+     * The constant BASE_URI.
+     */
+// Base URI the Grizzly HTTP server will listen on
     public static final String BASE_URI = "http://0.0.0.0:8080/myapp/";
 
     /**
@@ -65,8 +68,8 @@ public class Server {
     /**
      * Main method.
      *
-     * @param args
-     * @throws IOException
+     * @param args the input arguments
+     * @throws IOException the io exception
      */
     public static void main(String[] args) throws IOException {
         Logger l = Logger.getLogger("org.glassfish.grizzly.http.server.HttpHandler");
@@ -82,7 +85,7 @@ public class Server {
         log.info(String.format("Jersey app started with WADL available at "
                 + "%sapplication.wadl\nHit enter to stop it...", BASE_URI));
         System.in.read();
-        server.stop();
+        server.shutdown();
     }
 }
 

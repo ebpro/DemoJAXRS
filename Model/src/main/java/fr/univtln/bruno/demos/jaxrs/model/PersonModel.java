@@ -32,6 +32,9 @@ import org.eclipse.collections.impl.map.mutable.primitive.IntObjectHashMap;
 import java.util.List;
 
 
+/**
+ * The type Person model.
+ */
 public class PersonModel {
     private static final MutableIntObjectMap<Person> people = new IntObjectHashMap<>();
     private static int lastId = 0;
@@ -44,15 +47,32 @@ public class PersonModel {
     private PersonModel() {
     }
 
+    /**
+     * Put person.
+     *
+     * @param person the person
+     * @return the person
+     */
     public static Person put(Person person) {
         person.setId(++lastId);
         return people.put(lastId, person);
     }
 
+    /**
+     * Get person.
+     *
+     * @param i the
+     * @return the person
+     */
     public static Person get(int i) {
         return people.get(i);
     }
 
+    /**
+     * Get list.
+     *
+     * @return the list
+     */
     public static List<Person> get() {
         return people.toList();
     }

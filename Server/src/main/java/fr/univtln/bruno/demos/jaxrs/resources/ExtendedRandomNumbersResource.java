@@ -43,6 +43,9 @@ import java.security.spec.InvalidKeySpecException;
 import java.security.spec.KeySpec;
 import java.util.Arrays;
 
+/**
+ * The type Extended random numbers resource.
+ */
 @Log
 @Path("extrandomnumbers/")
 public class ExtendedRandomNumbersResource extends RandomNumbersResource {
@@ -80,8 +83,8 @@ public class ExtendedRandomNumbersResource extends RandomNumbersResource {
     /**
      * curl -X GET "http://localhost:8080/myapp/extrandomnumbers/qp?index=0"
      *
-     * @param index
-     * @return
+     * @param index the index
+     * @return int
      */
     @GET
     @Path("qp")
@@ -92,8 +95,8 @@ public class ExtendedRandomNumbersResource extends RandomNumbersResource {
     /**
      * curl -X POST http://localhost:8080/myapp/extrandomnumbers/pp/45
      *
-     * @param value
-     * @return
+     * @param value the value
+     * @return string
      */
     @Path("pp/{value}")
     @POST
@@ -105,8 +108,8 @@ public class ExtendedRandomNumbersResource extends RandomNumbersResource {
     /**
      * curl -X POST http://localhost:8080/myapp/extrandomnumbers/145
      *
-     * @param value
-     * @return
+     * @param value the value
+     * @return int
      */
     @Path("{value : \\d+}")
     @POST
@@ -119,8 +122,8 @@ public class ExtendedRandomNumbersResource extends RandomNumbersResource {
      * curl -X POST "http://localhost:8080/myapp/extrandomnumbers/multiply"
      * curl -H "factor:3" -X POST "http://localhost:8080/myapp/extrandomnumbers/multiply"
      *
-     * @param factor
-     * @return
+     * @param factor the factor
+     * @return string
      */
     @Path("multiply")
     @POST
@@ -132,8 +135,8 @@ public class ExtendedRandomNumbersResource extends RandomNumbersResource {
      * Curl doesn't send cookies so we save it to a file.
      * curl -v -H "Content-Type: text/plain" -X POST -d "secret" -c /tmp/cookies.txt "http://localhost:8080/myapp/extrandomnumbers/login"
      *
-     * @param password
-     * @return
+     * @param password the password
+     * @return response
      */
     @Path("login")
     @POST
@@ -159,8 +162,10 @@ public class ExtendedRandomNumbersResource extends RandomNumbersResource {
     }
 
     /**
-     * @param jwsString
-     * @return
+     * Admin response.
+     *
+     * @param jwsString the jws string
+     * @return response
      */
     @Path("admin")
     @GET
