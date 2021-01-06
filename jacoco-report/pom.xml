@@ -11,6 +11,7 @@
     <artifactId>jacoco-report</artifactId>
 
     <dependencies>
+
         <dependency>
             <groupId>fr.univtln.bruno.demos.jaxrs</groupId>
             <artifactId>javaclient</artifactId>
