@@ -11,6 +11,10 @@
 
     <artifactId>model</artifactId>
 
+    <properties>
+        <sonar.coverage.jacoco.xmlReportPaths>${basedir}/${aggregate.report.dir}</sonar.coverage.jacoco.xmlReportPaths>
+    </properties>
+
     <name>JAXRS Model</name>
 
 </project>

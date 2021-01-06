@@ -15,8 +15,8 @@
 
     <properties>
         <app.main.class>fr.univtln.bruno.demos.jaxrs.client.MyClient</app.main.class>
+        <sonar.coverage.jacoco.xmlReportPaths>${basedir}/${aggregate.report.dir}</sonar.coverage.jacoco.xmlReportPaths>
     </properties>
-
 
     <dependencies>
         <dependency>

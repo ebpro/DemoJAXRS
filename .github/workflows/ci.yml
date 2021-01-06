@@ -52,7 +52,7 @@ jobs:
     if: github.ref == 'refs/heads/develop'
     steps:
       - name: Launch a sonar analysis
-        run: ./mvn.sh -pl . --activate-profiles sonar sonar:sonar sonar-quality-gate:check
+        run: ./mvn.sh --activate-profiles sonar sonar:sonar && mvn --activate-profiles sonar -pl . sonar-quality-gate:check
 
   # This job publishes the site for develop branch
   maven-site:

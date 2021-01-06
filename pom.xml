@@ -12,10 +12,17 @@
         <module>Server</module>
         <module>JavaClient</module>
         <module>Model</module>
+        <module>jacoco-report</module>
     </modules>
 
     <properties>
         <github.account>ebpro</github.account>
+
+        <sonar.coverage.exclusions>jacoco-report/**</sonar.coverage.exclusions>
+        <aggregate.report.dir>../jacoco-report/target/site/jacoco-aggregate/jacoco.xml</aggregate.report.dir>
+        <sonar.coverage.jacoco.xmlReportPaths>${basedir}/jacoco-report/target/site/jacoco-aggregate/jacoco.xml
+        </sonar.coverage.jacoco.xmlReportPaths>
+
     </properties>
 
     <distributionManagement>
@@ -135,5 +142,31 @@
         </dependency>
 
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.sonarsource.scanner.maven</groupId>
+                <artifactId>sonar-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>prepare-agent</id>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>io.github.r0bb3n</groupId>
+                <artifactId>sonar-quality-gate-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
 
 </project>
