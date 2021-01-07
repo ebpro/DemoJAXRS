@@ -38,7 +38,7 @@ import java.time.LocalTime;
 @NoArgsConstructor(staticName = "of")
 public class NumberListDAO {
     //A Int list Model
-    private static MutableIntList intList = new IntArrayList();
+    private static final MutableIntList intList = new IntArrayList();
     private static LocalTime changeTime;
 
     static {

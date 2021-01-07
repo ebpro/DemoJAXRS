@@ -33,9 +33,6 @@ import org.glassfish.jersey.server.ResourceConfig;
 
 import java.io.IOException;
 import java.net.URI;
-import java.util.logging.ConsoleHandler;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  * This Class is a REST Server running on Jersey on top of Grizzly.
@@ -71,20 +68,18 @@ public class Server {
      * @param args the input arguments
      * @throws IOException the io exception
      */
-    public static void main(String[] args) throws IOException {
-        Logger l = Logger.getLogger("org.glassfish.grizzly.http.server.HttpHandler");
-        l.setLevel(Level.FINE);
-        l.setUseParentHandlers(false);
-        ConsoleHandler ch = new ConsoleHandler();
-        l.addHandler(ch);
-
-        log.info("Starting...");
-
-
+    public static void main(String[] args) throws IOException, InterruptedException {
+        log.info("Rest server starting...");
         final HttpServer server = startServer();
-        log.info(String.format("Jersey app started with WADL available at "
-                + "%sapplication.wadl\nHit enter to stop it...", BASE_URI));
-        System.in.read();
+
+        //The server will be shutdown at the end of the program
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> server.shutdownNow()));
+
+        log.info(String.format("Application started.%n" +
+                "Stop the application using CTRL+C"));
+
+        //We wait an infinite time.
+        Thread.currentThread().join();
         server.shutdown();
     }
 }

@@ -32,6 +32,7 @@ import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import lombok.extern.java.Log;
 
+import java.security.SecureRandom;
 import java.util.Arrays;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -42,6 +43,8 @@ import java.util.concurrent.ThreadLocalRandom;
 @Path("randomnumbers/")
 @Produces(MediaType.TEXT_PLAIN)
 public class RandomNumbersResource {
+    private final SecureRandom random = new SecureRandom();
+
     /**
      * The Number list dao.
      */
@@ -65,7 +68,7 @@ public class RandomNumbersResource {
      */
     @POST
     public String append() {
-        final int newInt = ThreadLocalRandom.current().nextInt(1, 6 + 1);
+        final int newInt = random.nextInt(6)+1;
         numberListDAO.add(newInt);
         return String.valueOf(newInt);
     }
