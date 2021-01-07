@@ -9,7 +9,7 @@ jobs:
           with:
             keep: 1
             names: |
-              fr.univtln.bruno.demos.jaxrs.demojaxrs 1.0-SNAPSHOT
-              fr.univtln.bruno.demos.jaxrs.model 1.0-SNAPSHOT
-              fr.univtln.bruno.demos.jaxrs.server 1.0-SNAPSHOT
-              fr.univtln.bruno.demos.jaxrs.javaclient 1.0-SNAPSHOT
+              fr.univtln.bruno.demos.jaxrs.demojaxrs
+              fr.univtln.bruno.demos.jaxrs.model
+              fr.univtln.bruno.demos.jaxrs.server
+              fr.univtln.bruno.demos.jaxrs.javaclient
