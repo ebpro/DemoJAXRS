@@ -73,7 +73,7 @@ public class Server {
         final HttpServer server = startServer();
 
         //The server will be shutdown at the end of the program
-        Runtime.getRuntime().addShutdownHook(new Thread(() -> server.shutdownNow()));
+        Runtime.getRuntime().addShutdownHook(new Thread(server::shutdownNow));
 
         log.info(String.format("Application started.%n" +
                 "Stop the application using CTRL+C"));

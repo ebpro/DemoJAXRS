@@ -34,7 +34,6 @@ import lombok.extern.java.Log;
 
 import java.security.SecureRandom;
 import java.util.Arrays;
-import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * Root resource (exposed at "message" path)
@@ -43,12 +42,11 @@ import java.util.concurrent.ThreadLocalRandom;
 @Path("randomnumbers/")
 @Produces(MediaType.TEXT_PLAIN)
 public class RandomNumbersResource {
-    private final SecureRandom random = new SecureRandom();
-
     /**
      * The Number list dao.
      */
     protected final NumberListDAO numberListDAO = NumberListDAO.of();
+    private final SecureRandom random = new SecureRandom();
 
     /**
      * Method handling HTTP GET requests. The returned object will be sent
@@ -68,7 +66,7 @@ public class RandomNumbersResource {
      */
     @POST
     public String append() {
-        final int newInt = random.nextInt(6)+1;
+        final int newInt = random.nextInt(6) + 1;
         numberListDAO.add(newInt);
         return String.valueOf(newInt);
     }
