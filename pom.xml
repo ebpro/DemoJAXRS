@@ -16,7 +16,7 @@
     </modules>
 
     <properties>
-        <github.account>ebpro</github.account>
+        <github.account>emmanuelbruno</github.account>
 
         <sonar.coverage.exclusions>jacoco-report/**</sonar.coverage.exclusions>
         <aggregate.report.dir>../jacoco-report/target/site/jacoco-aggregate/jacoco.xml</aggregate.report.dir>
