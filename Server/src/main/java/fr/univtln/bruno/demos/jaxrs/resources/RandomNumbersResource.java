@@ -39,7 +39,7 @@ import java.util.Arrays;
  * Root resource (exposed at "message" path)
  */
 @Log
-@Path("randomnumbers/")
+@Path("randomnumbers")
 @Produces(MediaType.TEXT_PLAIN)
 public class RandomNumbersResource {
     /**
@@ -100,7 +100,6 @@ public class RandomNumbersResource {
     public Response getMetadata() {
         return Response.status(Response.Status.OK)
                 .header("last_update", numberListDAO.getChangeTime())
-                //.entity(message)
                 .build();
     }
 

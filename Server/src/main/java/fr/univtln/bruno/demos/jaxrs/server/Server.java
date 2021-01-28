@@ -69,7 +69,7 @@ public class Server {
      * @throws IOException the io exception
      */
     public static void main(String[] args) throws IOException, InterruptedException {
-        log.info("Rest server starting...");
+        log.info("Rest server starting..."+BASE_URI);
         final HttpServer server = startServer();
 
         //The server will be shutdown at the end of the program
